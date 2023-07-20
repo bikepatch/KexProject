@@ -26,13 +26,13 @@ public class ExampleTest {
         // First call, it doesn't enter anywhere
         result = example.mut(iMock);
         verify(iMock, times(1)).nextValue();
-        verify(iMock, times(1)).nextValue();
+        verify(iMock, times(1)).name();
         assertEquals(0, result);
 
         // Second call, it enters just second if
         result = example.mut(iMock);
         verify(iMock, times(3)).nextValue();
-        verify(iMock, times(2)).nextValue();
+        verify(iMock, times(2)).name();
         assertEquals(1, result);
 
         // Checking cases when this enters first if and then first inner if
@@ -47,7 +47,7 @@ public class ExampleTest {
             // Just keep testing
         }
         verify(iMock, times(5)).nextValue();
-        verify(iMock, times(3)).nextValue();
+        verify(iMock, times(3)).name();
         assertEquals(0, result);
 
         // Checking cases when this enters first if and then second inner if
@@ -58,7 +58,7 @@ public class ExampleTest {
         // Fourth call
         result = example.mut(iMock);
         verify(iMock, times(8)).nextValue();
-        verify(iMock, times(4)).nextValue();
+        verify(iMock, times(4)).name();
         assertEquals(1, result);
 
     }
