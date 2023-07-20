@@ -1,7 +1,6 @@
 interface I {
     int nextValue();
     String name();
-
 }
 
 public class Example {
